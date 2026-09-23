@@ -1,0 +1,29 @@
+STATE under /tmp/tmp.bHhNamduzw (Windows: C:\Users\SJG\AppData\Local\Temp\tmp.bHhNamduzw)
+
+===== AFTER (target) =====
+### [after] holder A acquires, then exits without release
+A acquired (pid 73672)
+lock path type: symlink -> /tmp/tmp.bHhNamduzw/claim-after/x.lock.owner.CpDS6J
+Windows view:
+   09/23/2026  08:13 AM    <SYMLINKD>     x.lock [C:\Users\SJG\AppData\Local\Temp\tmp.bHhNamduzw\claim-after\x.lock.owner.CpDS6J]
+   09/23/2026  08:13 AM    <DIR>          x.lock.owner.CpDS6J
+### [after] process B tries to reclaim from the dead holder (15s bound)
+B acquired; recovered_pid=73672
+### live holder B; contended C attempt:
+C refused (correct)
+owner dir entries after contention: pid 
+B released
+rc=0
+leftovers in state: 
+nested .steal dirs: 0
+
+===== BEFORE (base 9296f9b) =====
+### [before] holder A acquires, then exits without release
+lock path type: plain DIRECTORY (deep copy)
+Windows view:
+   09/23/2026  08:13 AM    <DIR>          x.lock
+### [before] process B tries to reclaim from the dead holder (15s bound)
+B FAILED to acquire (rc=1)
+rc=0
+leftovers in state: x.lock x.lock/pid x.lock.steal x.lock.steal/pid 
+nested .steal dirs: 1

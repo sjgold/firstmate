@@ -1,0 +1,25 @@
+## host: MINGW64_NT-10.0-26200  CLAUDE_PID=25260  shell winpid=35744
+## CLAUDE_PID identity via Win32_Process:
+25260 claude.exe
+
+## BEFORE (base 9296f9b): bin/fm-lock.sh acquire
+error: cannot locate harness process in ancestry
+exit=1
+## BEFORE: ancestry walk
+walk exit=1
+
+## AFTER (target e6ece9c): ancestry walk
+25260
+walk exit=0
+anchor=25260
+## AFTER: bin/fm-lock.sh acquire
+lock acquired: harness pid 25260
+exit=0
+## .lock contents:
+25260
+## .lock-session present: yes
+## AFTER: fm-lock.sh status
+lock: held by live harness pid 25260
+## AFTER: re-acquire (already mine)
+lock acquired: harness pid 25260
+exit=0

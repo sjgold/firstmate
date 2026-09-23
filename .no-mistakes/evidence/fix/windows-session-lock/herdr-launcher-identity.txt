@@ -1,0 +1,15 @@
+## inside herdr lab pane: HERDR_SESSION=fm-lab-wintest-77988-15446 HERDR_PANE_ID=w1:p1
+## injected HERDR_SOCKET_PATH=C:\Users\SJG\AppData\Roaming\herdr\sessions\fm-lab-wintest-77988-15446\herdr.sock
+
+===== AFTER (target e6ece9c)
+canonical(injected socket): /c/Users/SJG/AppData/Roaming/herdr/sessions/fm-lab-wintest-77988-15446/herdr.sock
+launcher_identity rc=0 pane=w1:p1 tab=w1:t1 workspace=w1
+
+===== BEFORE (base 9296f9b)
+canonical(injected socket): REFUSED
+error: herdr launcher pane 'w1:p1' reports an unusable socket path; refusing to place a worker from an unverifiable parent identity
+launcher_identity rc=1 pane= tab= workspace=
+
+===== adversarial: cygpath absent (PATH without /usr/bin), target
+refused (expected)
+DONE

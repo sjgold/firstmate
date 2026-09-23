@@ -1,0 +1,20 @@
+## Scenario: recorded pid is dead (Windows pid 4000001)
+lock: stale (pid 4000001 dead or not a harness)
+lock acquired: harness pid 25260
+exit=0
+lock line1 now: 25260
+
+## Scenario: recorded pid is a live non-harness Windows process (explorer.exe pid 10748)
+lock: stale (pid 10748 dead or not a harness)
+lock acquired: harness pid 25260
+exit=0
+lock line1 now: 25260
+
+## Scenario: recorded pid is ANOTHER live claude.exe session (pid 73324)
+lock: held by live harness pid 73324
+error: another live firstmate session holds the lock (pid 73324); operate read-only until resolved
+exit=1
+lock line1 now: 73324
+
+## BEFORE (base) status on held-by-live-claude lock
+lock: stale (pid 25260 dead or not a harness)
